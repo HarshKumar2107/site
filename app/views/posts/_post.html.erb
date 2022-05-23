@@ -1,0 +1,32 @@
+<%if signed_in?%>
+  <div class="card pt-1 pb-2 m-2 bg-dark text-light " style="display:inline-block; height: auto; width: 100%;">
+    <% if post.cover.attached? || user.profile.attached?%>
+
+    	<div class="p-2">
+    	 <%= image_tag(current_user.profile, :size => "40x40", :crop => :fill, class: "rounded-circle") %>
+    	 <%= current_user.username%>
+       
+
+<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <span>&#8942;</span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#"><%= link_to "Delete", posts_path(@post), class: "m-1", data: {turbo_method: :delete} %></a></li>
+          </ul>
+        </li>
+      </ul>
+
+    	</div>
+    	<hr>
+    	<p class="mt-3 ps-2">
+        <%= post.desc %>
+      </p>
+      <div>
+        <%= image_tag(post.cover, style: 'height:auto;width:100%;') %>
+      </div>
+    <%end%>
+  </div>
+<%end%>

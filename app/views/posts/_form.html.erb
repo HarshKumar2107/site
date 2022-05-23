@@ -1,0 +1,15 @@
+<%= form_with model: Post do |form| %>
+
+  <div class="mt-2">
+    <%= form.text_field :desc, placeholder: "Enter Title", class: "form-control rounded-pill"%>
+  </div>
+  
+  <div class="mt-2">
+    <%= form.label "Select Image"%>
+    <%= form.file_field :cover, class: "form-control rounded-pill"%>
+  </div>
+  
+  <div class="text-center mt-3">
+    <%= form.submit :"Create Album", class: "btn btn-outline-secondary" %>
+  </div>
+<% end %>
